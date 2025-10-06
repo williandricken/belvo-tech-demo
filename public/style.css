@@ -1,0 +1,198 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* position: relative; */
+  z-index: 0;
+  /* Remove filter: brightness here */
+  background: none;
+}
+
+.main-content {
+  flex: 1 0 auto;
+}
+
+nav {
+  background-color: rgba(255, 140, 0, 0.9);
+  color: white;
+  top: auto;
+}
+
+.navbar-brand {
+  margin: auto;
+  margin-left: 0;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav li a {
+  margin: 0;
+  padding: 18px 17px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: darkblue
+}
+
+.btn {
+  display: inline;
+  margin: 0;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);	
+}
+
+#menuToggle {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+#menuCheckbox {
+  display: none;
+}
+
+.bdBackground {
+  height: 500px;
+  background-position: center;
+  position: relative; /* Ensure the child element (#bdBorder) is positioned relative to this */
+  overflow: hidden; /* Prevent any overflow from the border */
+  z-index: 0; /* Ensure the background is behind other elements */
+}
+
+#bdBorder {
+  position: absolute; /* Position the border absolutely within the parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box; /* Include the border in the element's dimensions */
+  border: 10px solid transparent; /* Adjust the border size and color as needed */
+  background-size: cover;
+  pointer-events: none; /* Ensure the border does not interfere with user interactions */
+}
+
+.bdBackground-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.19); /* adjust alpha for more/less opacity */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* height: 100vh; */
+}
+
+.itemsContainer {
+	position: relative;
+	text-align: center;
+}
+
+.itemsContainer td,
+.itemsContainer tr,
+.itemsContainer th {
+  text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.text-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.text-left {
+	text-align: left;
+}
+.text-right {
+	text-align: right;
+}
+
+.largeTable {
+	/* display: flex; */
+	justify-content: center;
+	align-items: center;
+	width: 100%; /* Set to 100% to make it responsive, or specify a larger width */
+	max-width: 900px; /* Adjust as needed for your design */
+	height: 100%; /* Set to 100% to make it responsive, or specify a larger width */
+	max-height: 500px; /* Adjust as needed for your design */
+	margin: 0 auto; /* Center the table */
+	overflow-x: auto;
+  /* added after, if tables break, delete this */
+  position: relative;
+  z-index: 1; 
+}
+
+.largeTable td,
+.largeTable tr,
+.largeTable th {
+  text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.collapsed {
+	display: none;
+}
+
+.form-row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.input-container {
+	display: inline-block;
+	margin-right: 10px;
+	/* Adjust as needed for spacing */
+}
+
+.input-container img {
+	flex: 1;
+	max-width: 100px;
+	/* Adjust as needed */
+}
+
+
+.remove-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 3px 5px;
+  cursor: pointer;
+}

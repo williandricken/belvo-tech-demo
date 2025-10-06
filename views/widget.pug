@@ -1,0 +1,23 @@
+extends ./base.pug
+
+block title
+	title Belvo Widget
+
+block content
+	.container-fluid.mt-4
+		.row.justify-content-center
+			.col-lg-3
+				.card.shadow-lg
+					.card-header.bg-primary.text-white.text-center
+						h3.mb-0 Belvo Widget
+					.card-body
+						form(action="/widget/create" method="POST")
+							.form-group
+								label(for="fullname") Full Name
+								input.form-control(type="text" id="fullname" name="fullname")
+							.form-group
+								label(for="cpf") CPF
+								input.form-control(type="text" id="cpf" name="cpf")
+							.form-row.mt-4
+								.col-12.text-center
+									button#submitButton.btn.btn-lg.btn-success(type="submit") Go!

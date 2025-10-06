@@ -1,0 +1,29 @@
+extends ./base.pug
+
+block title
+	title Link Creation
+
+block content
+	.container-fluid.mt-4
+		.row.justify-content-center
+			.col-lg-3
+				.card.shadow-lg
+					.card-header.bg-primary.text-white.text-center
+						h3.mb-0 Link Creation
+					.card-body
+						form(action="/link/create" method="POST")
+							.form-group
+								label(for="institution") Institution
+								select.form-control(type="text" id="institution" name="institution")
+									option(value="erebor_br_retail") Erebor Bank
+									option(value="gotham_br_business") Gotham Business Bank
+									option(value="gringotts_br_retail") Gringotts Bank
+							.form-group
+								label(for="username") Username
+								input.form-control(type="text" id="username" name="username")
+							.form-group
+								label(for="password") Password
+								input.form-control(type="text" id="password" name="password")
+							.form-row.mt-4
+								.col-12.text-center
+									button#submitButton.btn.btn-lg.btn-success(type="submit") Go!

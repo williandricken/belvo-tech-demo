@@ -1,0 +1,28 @@
+nav.navbar.navbar-expand-lg
+  label#menuToggle(for="menuCheckbox") ☰
+  input#menuCheckbox(type="checkbox")
+  h4.navbar-brand
+    a(href="/welcome") 
+      | Belvo Demo 
+  ul
+    li
+      a(href="/widget") Belvo Widget
+      a(href="/linkCreation") Link Creation
+      a(href="/accountList") List of Accounts
+      a(href="/pix") Biometric Pix
+      a(href="/listAllInstitutions") List All Institutions
+
+script.
+  function toggleDropdown(event, el) {
+    event.preventDefault();
+    event.stopPropagation(); // <-- Add this line!
+    document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+      if (!el.nextElementSibling.isSameNode(menu)) menu.classList.remove('show');
+    });
+    el.nextElementSibling.classList.toggle('show');
+  }
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-item.dropdown')) {
+      document.querySelectorAll('.dropdown-menu.show').forEach(menu => menu.classList.remove('show'));
+    }
+  });
