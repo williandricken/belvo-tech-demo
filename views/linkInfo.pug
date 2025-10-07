@@ -1,0 +1,186 @@
+extends ./base.pug
+
+block title
+  title User Link Information
+
+block content
+  .container.mt-4
+    .row.justify-content-center
+      .col-lg-10
+        .card.shadow-lg
+          .card-header.bg-primary.text-white.text-center
+            h3.mb-0 Owner Information
+          if ownersInfo.length > 0
+            .card-body
+              table.table.table-bordered.table-hover.text-center
+                thead
+                  tr(style="background-color: #f8f9fa;")
+                    th First Name
+                    th Last Name
+                    th Full Name
+                    th Email
+                    th Document Type
+                    th Document Number
+                    th Phone Number
+                tbody
+                  each owner in ownersInfo
+                    tr(style=`background-color: ${bgColor}`)
+                      td= owner.firstName
+                      td= owner.lastName
+                      td= owner.fullName
+                      td= owner.email
+                      td= owner.document_type
+                      td= owner.document_number
+                      td= owner.phone
+                      td
+                        form.d-inline(method="POST", action="owner/deleteOwner/" + owner.id, onsubmit="return confirm('Are you sure you want to delete this owner? This action cannot be undone.');")
+                          button.btn.btn-danger.btn-sm(type="submit") Delete Owner
+          else 
+            h4.alert.alert-info.mt-4 No owners found for this user link.
+        .card.shadow-lg
+          .card-header.bg-primary.text-white.text-center
+            h3.mb-0 Accounts Information
+          if accountsInfo.length > 0
+            .card-body
+              table.table.table-bordered.table-hover.text-center
+                thead
+                  tr(style="background-color: #f8f9fa;")
+                    th Name
+                    th Type
+                    th Number
+                    th Currency
+                    th Category
+                tbody
+                  each account in accountsInfo
+                    tr(style=`background-color: ${bgColor}`)
+                      td= account.name
+                      td= account.type
+                      td= account.number
+                      td= account.currency
+                      td= account.category
+                      td
+                        form.d-inline(method="POST", action="account/deleteAccount/" + account.id, onsubmit="return confirm('Are you sure you want to delete this account? This action cannot be undone.');")
+                          button.btn.btn-danger.btn-sm(type="submit") Delete Account
+          else 
+            h4.alert.alert-info.mt-4 No accounts found for this user link.
+        .card.shadow-lg
+          .card-header.bg-primary.text-white.text-center
+            h3.mb-0 Transactions Information
+          if transactionsInfo.length > 0
+            .card-body
+              table.table.table-bordered.table-hover.text-center
+                thead
+                  tr(style="background-color: #f8f9fa;")
+                    th Name
+                    th Type
+                    th Number
+                    th Currency
+                    th Category
+                    th Merchant
+                    th Amount
+                tbody
+                  each transaction in transactionsInfo
+                    tr(style=`background-color: ${bgColor}`)
+                      td= transaction.name
+                      td= transaction.type
+                      td= transaction.number
+                      td= transaction.currency
+                      td= transaction.category
+                      td= transaction.merchant
+                      td= transaction.amount
+                      td
+                        form.d-inline(method="POST", action="transaction/deleteTransaction/" + transaction.id, onsubmit="return confirm('Are you sure you want to delete this transaction? This action cannot be undone.');")
+                          button.btn.btn-danger.btn-sm(type="submit") Delete Transaction
+          else 
+            h4.alert.alert-info.mt-4 No transactions found for this user link.
+        .card.shadow-lg
+          .card-header.bg-primary.text-white.text-center
+            h3.mb-0 Balances Information
+          if balancesInfo.length > 0
+            .card-body
+              table.table.table-bordered.table-hover.text-center
+                thead
+                  tr(style="background-color: #f8f9fa;")
+                    th Currency
+                    th Available
+                    th Blocked
+                tbody
+                  each balance in balancesInfo
+                    tr(style=`background-color: ${bgColor}`)
+                      td= balance.currency
+                      td= balance.available
+                      td= balance.blocked
+          else 
+            h4.alert.alert-info.mt-4 No balances found for this user link.
+        .card.shadow-lg
+          .card-header.bg-primary.text-white.text-center
+            h3.mb-0 Bills Information
+          if billsInfo.length > 0
+            .card-body
+              table.table.table-bordered.table-hover.text-center
+                thead
+                  tr(style="background-color: #f8f9fa;")
+                    th Name
+                    th Currency
+                    th Category
+                    th Total Amount
+                tbody
+                  each bill in billsInfo
+                    tr(style=`background-color: ${bgColor}`)
+                      td= bill.name
+                      td= bill.currency
+                      td= bill.category
+                      td= bill.total_amount
+                      td
+                        form.d-inline(method="POST", action="bill/deleteBill/" + bill.id, onsubmit="return confirm('Are you sure you want to delete this bill? This action cannot be undone.');")
+                          button.btn.btn-danger.btn-sm(type="submit") Delete Bill
+          else 
+            h4.alert.alert-info.mt-4 No bills found for this user link.
+        .card.shadow-lg
+          .card-header.bg-primary.text-white.text-center
+            h3.mb-0 Investments Information
+          if investmentsInfo.length > 0
+            .card-body
+              table.table.table-bordered.table-hover.text-center
+                thead
+                  tr(style="background-color: #f8f9fa;")
+                    th Name
+                    th Currency
+                    th Type
+                    th Net Value
+                tbody
+                  each investment in investmentsInfo
+                    tr(style=`background-color: ${bgColor}`)
+                      td = investment.product_name
+                      td = investment.currency
+                      td = investment.type
+                      td = investment.net_value
+                      td
+                        form.d-inline(method="POST", action="investment/deleteInvestment/" + investment.id, onsubmit="return confirm('Are you sure you want to delete this investment? This action cannot be undone.');")
+                          button.btn.btn-danger.btn-sm(type="submit") Delete Investment
+          else 
+            h4.alert.alert-info.mt-4 No investments found for this user link.
+        .card.shadow-lg
+          .card-header.bg-primary.text-white.text-center
+            h3.mb-0 Investments Transactions Information
+          if investmentsTransactionsInfo.length > 0
+            .card-body
+              table.table.table-bordered.table-hover.text-center
+                thead
+                  tr(style="background-color: #f8f9fa;")
+                    th Name
+                    th Currency
+                    th Type
+                    th Net Value
+                tbody
+                  each investmentTransaction in investmentsTransactionsInfo
+                    tr(style=`background-color: ${bgColor}`)
+                      td = investmentTransaction.product_name
+                      td = investmentTransaction.currency
+                      td = investmentTransaction.type
+                      td = investmentTransaction.net_value
+                      td
+                        form.d-inline(method="POST", action="investmentTransaction/deleteInvestmentTransaction/" + investmentTransaction.id, onsubmit="return confirm('Are you sure you want to delete this investment transaction? This action cannot be undone.');")
+                          button.btn.btn-danger.btn-sm(type="submit") Delete Investment Transaction
+          else 
+            h4.alert.alert-info.mt-4 No investments transactions found for this user link.      

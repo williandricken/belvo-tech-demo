@@ -122,7 +122,7 @@ exports.biometricPix = async (req, res) => {
 }
 
 exports.createWidget = async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     const requestBody = {
         id: secretId,
@@ -196,7 +196,14 @@ exports.createLink = async (req, res) => {
         "external_id": generateExternalId(),
         "access_mode": "single",
         "fetch_resources": [
-            "ACCOUNTS"
+            "ACCOUNTS", 
+            "BALANCES",
+            "BILLS", 
+            // "INCOMES", 
+            "OWNERS", 
+            // "RECURRING_EXPENSES", 
+            // "RISK_INSIGHTS",
+            "TRANSACTIONS"
         ],
         "credentials_storage": "27d",
         "stale_in": "42d"
@@ -218,7 +225,8 @@ exports.createLink = async (req, res) => {
     // .then(result => access_token = result)
     // .catch(error => console.error("Error:", error));
 
-    console.log(data.id);
+    // console.log(data);
+    // console.log(data.id);
     res.cookie('linkId', data.id);
-    return res.render("index");
+    return res.render("widget");
 }
