@@ -10,6 +10,7 @@ block content
 				.card.shadow-lg
 					.card-header.bg-primary.text-white.text-center
 						h3.mb-0 Link Creation
+						p Whenever a user connects to their institution using the Belvo API, we create a Link. A Link is a set of encrypted credentials, for example the username and password, that is associated with the user. You will always need to first register a Link before being able to access information specific to that end user.
 					.card-body
 						form(action="/link/create" method="POST")
 							.form-group

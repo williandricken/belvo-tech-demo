@@ -198,7 +198,7 @@ exports.createLink = async (req, res) => {
         "fetch_resources": [
             "ACCOUNTS", 
             "BALANCES",
-            "BILLS", 
+            // "BILLS", 
             // "INCOMES", 
             "OWNERS", 
             // "RECURRING_EXPENSES", 
@@ -226,7 +226,7 @@ exports.createLink = async (req, res) => {
     // .catch(error => console.error("Error:", error));
 
     // console.log(data);
-    // console.log(data.id);
+    console.log(data.id);
     res.cookie('linkId', data.id);
     return res.render("widget");
 }

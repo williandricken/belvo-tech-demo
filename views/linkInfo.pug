@@ -10,6 +10,7 @@ block content
         .card.shadow-lg
           .card-header.bg-primary.text-white.text-center
             h3.mb-0 Owner Information
+            p An owner represents the person who has access to a Link and is the owner of all the accounts inside the Link. You can use this endpoint in order to get useful information about your client.
           if ownersInfo.length > 0
             .card-body
               table.table.table-bordered.table-hover.text-center
@@ -19,9 +20,9 @@ block content
                     th Last Name
                     th Full Name
                     th Email
-                    th Document Type
-                    th Document Number
-                    th Phone Number
+                    th Doc. Type
+                    th Doc. Number
+                    th Phone
                 tbody
                   each owner in ownersInfo
                     tr(style=`background-color: ${bgColor}`)
@@ -40,6 +41,7 @@ block content
         .card.shadow-lg
           .card-header.bg-primary.text-white.text-center
             h3.mb-0 Accounts Information
+            p An account is the representation of a bank account inside a financial institution. A user can have one or more accounts in an institution. For example, one user (or link) can have a checking account, several credit cards, and a loan account.
           if accountsInfo.length > 0
             .card-body
               table.table.table-bordered.table-hover.text-center
@@ -66,6 +68,7 @@ block content
         .card.shadow-lg
           .card-header.bg-primary.text-white.text-center
             h3.mb-0 Transactions Information
+            p A transaction contains the detailed information of each movement inside an account. For example, a purchase at a store or a restaurant.
           if transactionsInfo.length > 0
             .card-body
               table.table.table-bordered.table-hover.text-center
@@ -96,6 +99,7 @@ block content
         .card.shadow-lg
           .card-header.bg-primary.text-white.text-center
             h3.mb-0 Balances Information
+            p A balance is the amount of money available in a given bank account (checking or savings) at a given time.
           if balancesInfo.length > 0
             .card-body
               table.table.table-bordered.table-hover.text-center
@@ -115,6 +119,7 @@ block content
         .card.shadow-lg
           .card-header.bg-primary.text-white.text-center
             h3.mb-0 Bills Information
+            p A bill refers to the credit card bill a user receives for a given account.
           if billsInfo.length > 0
             .card-body
               table.table.table-bordered.table-hover.text-center
