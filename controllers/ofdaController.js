@@ -228,5 +228,5 @@ exports.createLink = async (req, res) => {
     // console.log(data);
     console.log(data.id);
     res.cookie('linkId', data.id);
-    return res.render("widget");
+    return res.redirect("/linkInfo");
 }

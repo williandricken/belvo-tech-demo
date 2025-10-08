@@ -4,7 +4,81 @@ block title
   title Welcome!
 
 block content
-  .container.mt-4
-    .jumbotron
-      h3.display-4 This purpose of this project is to implement the OFDA Belvo API for a demosntration to a potential client. 
+  .container(style="width: 100%;")
+    .jumbotron(style="width: 100%;")
+      h2(style="text-align: center;")
+        | Welcome!
+      br
+      h2(style="text-align: center;")
+        | Getting Started
+      p Unlock standardized and improved financial data points from Brazil's open finance network with Belvo's Open Finance Data Aggregation product for Brazil, enabling richer insights and enhanced financial applications.
+      center
+        #accordion
+          .card
+            .card-header(onclick="toggleCard(0)")
+              .button.btn.btn-primary(style="width: 100%;") Owner
+            .card-body 
+              | An owner represents the person who has access to a Link and is the owner of all the accounts inside the Link.
+              | You can use this endpoint in order to get useful information about your client, such as, their full name, key contact information, information about the ID document they used when opening the account.
+              br
+              img(style="width: 500px; height: 300px;" src="https://developers.belvo.com/assets/br-agg-diagram-owners.cee554e354eec079040ccd1b1a72e43440660bfecaa7134e601cc2ee8f7427b8.9c1bb791.png")
+          .card
+            .card-header(onclick="toggleCard(1)") 
+              .button.btn.btn-primary(style="width: 100%;") Accounts
+            .card-body
+              | An account is the representation of a bank account inside a financial institution. A user can have one or more accounts in an institution.
+              | For example, one user (or link) can have a checking account, several credit cards, and a loan account.
+              | Querying for a user's account information is useful as you can get information regarding:
+              br
+              | - what types of accounts the user has.
+              br
+              | - the balance for each account (savings, checking, credit card, loan, and so on).
+              br
+              | - detailed information regarding their credit card spending.
+              br
+              | - the current situation of any loans they may have.
+              br
+              img(style="width: 500px; height: 300px;" src="https://developers.belvo.com/assets/br-agg-diagram-accounts.1d1405c1847e0a4dc000175b02d7ecd8820736063670768c0681b96158236bc3.9c1bb791.png")
+          .card
+            .card-header(onclick="toggleCard(2)")
+              .button.btn.btn-primary(style="width: 100%;") Balances
+            .card-body
+              | A balance is the amount of money available in a given bank account (checking or savings) at a given time.
+              br
+              img(style="width: 500px; height: 300px;" src="https://developers.belvo.com/assets/br-agg-diagram-balance.d16649bbcd6a538fb43684025fbd1f2ed03c77c5975bcbcc4cbc8dbeff5c88c4.9c1bb791.png")
+          .card
+            .card-header(onclick="toggleCard(3)")
+              .button.btn.btn-primary(style="width: 100%;") Transactions
+            .card-body
+              | A transaction contains the detailed information of each movement inside an account. For example, a purchase at a store or a restaurant.
+              br
+              | Fractional icons are not supported, every icon is rounded up/down. Shade and Drizzle works as they were intended to work.
+              br
+              img(style="width: 500px; height: 300px;" src="https://developers.belvo.com/assets/br-agg-diagram-transactions.588bd76c941083bd90eda21f639d2591d98dac7bc71284aa01b8edb8772f9d31.9c1bb791.png")
+          .card
+            .card-header(onclick="toggleCard(4)")
+              .button.btn.btn-primary(style="width: 100%;") Bills
+            .card-body
+              | A bill refers to the credit card bill a user receives for a given account.
+              br
+              img(style="width: 500px; height: 300px;" src="https://developers.belvo.com/assets/br-agg-diagram-bills.8bb584ed640a3de90d27dcdd7148db6f76a8f56379e9f92d8bab1dc12b96e7a6.9c1bb791.png")
+  script.
+    function toggleCard(index) {
+      var accordion = document.getElementById('accordion');
+      var cardBodies = accordion.getElementsByClassName('card-body');
+      var cardBody = cardBodies[index];
 
+      if (cardBody.style.display === 'none' || cardBody.style.display === '') {
+        cardBody.style.display = 'block';
+      } else {
+        cardBody.style.display = 'none';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var accordion = document.getElementById('accordion');
+      var cardBodies = accordion.getElementsByClassName('card-body');
+      for (var i = 0; i < cardBodies.length; i++) {
+        cardBodies[i].style.display = 'none';
+      }
+    })
