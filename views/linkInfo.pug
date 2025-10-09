@@ -188,4 +188,8 @@ block content
                         form.d-inline(method="POST", action="investmentTransaction/deleteInvestmentTransaction/" + investmentTransaction.id, onsubmit="return confirm('Are you sure you want to delete this investment transaction? This action cannot be undone.');")
                           button.btn.btn-danger.btn-sm(type="submit") Delete Investment Transaction
           else 
-            h4.alert.alert-info.mt-4 No investments transactions found for this user link.      
+            h4.alert.alert-info.mt-4 No investments transactions found for this user link.  
+        .card.shadow-lg
+          .card-header.bg-primary.text-white.text-center
+            form.d-inline(method="POST", action="link/deleteLink/" + linkId, onsubmit="return confirm('Are you sure you want to delete this user link? This action cannot be undone.');")
+              button.btn.btn-danger.btn-sm(type="submit") Delete User Link  

@@ -33,7 +33,8 @@ router.get("/linkInfo", async (req, res) => {
     const billsInfo = await helpers.getAllBills(req.cookies.linkId);
     const investmentsInfo = await helpers.getAllInvestments(req.cookies.linkId);
     const investmentsTransactionsInfo = await helpers.getAllInvestmentsTransactions(req.cookies.linkId);
-    res.render("linkInfo", {ownersInfo: ownersInfo, accountsInfo: accountsInfo, transactionsInfo: transactionsInfo, balancesInfo: balancesInfo, billsInfo: billsInfo, investmentsInfo: investmentsInfo, investmentsTransactionsInfo: investmentsTransactionsInfo});
+    const linkId = req.cookies.linkId;
+    res.render("linkInfo", {linkId: linkId, ownersInfo: ownersInfo, accountsInfo: accountsInfo, transactionsInfo: transactionsInfo, balancesInfo: balancesInfo, billsInfo: billsInfo, investmentsInfo: investmentsInfo, investmentsTransactionsInfo: investmentsTransactionsInfo});
 });
 
 router.post("/owner/deleteOwner/:id", async (req, res) => {
@@ -70,6 +71,12 @@ router.post("/investmentTransaction/deleteInvestment/:id", async (req, res) => {
     const investmentsTransactions = req.params.id;
     await helpers.deleteResource("br/investments-transactions", investmentsTransactions);
     res.redirect("/linkInfo");
+});
+
+router.post("/link/deleteLink/:id", async (req, res) => {
+    const link = req.params.id;
+    await helpers.deleteResource("links", link);
+    res.redirect("/linkCreation");
 });
 
 
